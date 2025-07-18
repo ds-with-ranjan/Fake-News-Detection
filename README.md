@@ -1,147 +1,187 @@
-# 📰 Fake News Detection using Machine Learning & NLP
+# 📰 Fake News Detection with Machine Learning
 
-[![Python](https://img.shields.io/badge/Python-3.10-blue?logo=python)](https://www.python.org)
-[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](./LICENSE)
-[![Issues](https://img.shields.io/github/issues/ds-with-ranjan/Fake-News-Detection)](https://github.com/ds-with-ranjan/Fake-News-Detection/issues)
-[![Stars](https://img.shields.io/github/stars/ds-with-ranjan/Fake-News-Detection?style=social)](https://github.com/ds-with-ranjan/Fake-News-Detection/stargazers)
+![App Demo](https://raw.githubusercontent.com/ds-with-ranjan/Fake-News-Detection/main/docs/demo.png)
 
-> A powerful machine learning project that classifies news as **Real** or **Fake** using NLP and classification models.
+A machine learning-based solution to detect fake news articles using NLP techniques and classification models. This project includes preprocessing, feature engineering, model training, evaluation, and an optional Streamlit web app interface.
 
 ---
 
-## 👨‍💻 Author
-
-**Ranjan Chakrabortty**  
-📧 Email: [ranjanchakrabortty4@gmail.com](mailto:ranjanchakrabortty4@gmail.com)  
-🔗 GitHub: [@ds-with-ranjan](https://github.com/ds-with-ranjan)
-
----
-
-## 📌 Overview
-
-In the modern digital era, fake news can spread quickly and influence public opinion. This project leverages **Natural Language Processing (NLP)** and **Machine Learning (ML)** to identify whether a news article is real or fake. It includes:
-
-- Data preprocessing
-- TF-IDF vectorization
-- Logistic Regression & Passive Aggressive Classifier
-- Model evaluation and prediction
+## 📌 Table of Contents
+- [Overview](#overview)
+- [Project Highlights](#project-highlights)
+- [Technologies Used](#technologies-used)
+- [Dataset](#dataset)
+- [EDA](#exploratory-data-analysis)
+- [Model Training](#model-training)
+- [Evaluation](#model-evaluation)
+- [Streamlit App](#streamlit-web-app)
+- [How to Run](#how-to-run-locally)
+- [Future Scope](#future-enhancements)
+- [Author](#author)
 
 ---
 
-## 🚀 Features
-
-- 🧠 Machine Learning with Scikit-learn
-- 🧹 Text cleaning and preprocessing with NLTK
-- 📈 TF-IDF based feature extraction
-- ✅ Accuracy > 93% with PassiveAggressiveClassifier
-- 🖥️ Ready for GUI/Streamlit integration
+## 📖 Overview
+With misinformation becoming widespread, this project aims to classify news articles as **Real** or **Fake** using machine learning. It demonstrates how to use NLP pipelines with classification algorithms for practical applications.
 
 ---
 
-## 📊 Demo
+## 🌟 Project Highlights
+- ✅ Cleaned & preprocessed text using NLP
+- ✅ Used **TF-IDF** vectorization
+- ✅ Trained with Logistic Regression and Passive Aggressive Classifier
+- ✅ Achieved over **93% accuracy**
+- ✅ Optional **Streamlit UI** for real-time predictions
+- ✅ Docker support for deployment *(optional)*
 
-> *(Optional: Add demo image here)*  
-![Demo](docs/demo.png)
+---
+
+## 💻 Technologies Used
+- Python
+- NLTK
+- Scikit-learn
+- Pandas & NumPy
+- Matplotlib & Seaborn
+- Streamlit
+- Docker
 
 ---
 
 ## 📂 Dataset
-
-- **Source**: [Fake and Real News Dataset – Kaggle](https://www.kaggle.com/clmentbisaillon/fake-and-real-news-dataset)
-- **Files**: `Fake.csv`, `True.csv`
-- **Columns**:
-  - `title`, `text`, `subject`, `label`
+**[Fake and Real News Dataset](https://www.kaggle.com/clmentbisaillon/fake-and-real-news-dataset)** from Kaggle.  
+- ~21,000 news articles  
+- Balanced dataset with labels `FAKE` and `REAL`
 
 ---
 
-## 🛠️ Installation & Setup
+## 📊 Exploratory Data Analysis
 
-### 1. Clone the repository
-```bash
-git clone https://github.com/ds-with-ranjan/Fake-News-Detection
-cd Fake-News-Detection
+- Word frequency visualizations
+- Word clouds of fake vs real
+- Article length distribution
+- Class balance plots
 
-2. Create virtual environment
-python -m venv venv
-source venv/bin/activate  # On Windows: venv\\Scripts\\activate
+*See `EDA.ipynb` for full analysis*
 
-3. Install dependencies
-pip install -r requirements.txt
+---
 
-4. Train the model
-python code/classifier.py
+## 🧠 Model Training
 
-5. Predict using saved model
-python code/predict.py
+### 🔧 Preprocessing
+- Stopword removal
+- Punctuation cleaning
+- Lemmatization using NLTK
+- TF-IDF vectorizer for feature extraction
+
+### 📈 Models Used
 
 | Model                         | Accuracy | F1 Score |
-| ----------------------------- | -------- | -------- |
-| Logistic Regression           | 92.5%    | 92.0     |
-| Passive Aggressive Classifier | 93.1%    | 93.4     |
-| Multinomial Naive Bayes       | 89.7%    | 89.0     |
-
-✅ Best Model: Passive Aggressive Classifier
-
-
-🗂 Project Structure
-
-Fake-News-Detection/
-│
-├── code/
-│   ├── classifier.py          # Model training
-│   ├── predict.py             # Prediction using saved model
-│   ├── vectorization.py       # TF-IDF vectorizer
-│   └── train_test_split.py    # Splitting the dataset
-│
-├── data/
-│   ├── train.csv
-│   ├── test.csv
-│   └── valid.csv
-│
-├── final_model.pkl            # Trained model
-├── requirements.txt
-├── LICENSE
-└── README.md
-
-🔮 Future Improvements
-Use advanced models like LSTM or BERT
-
-Real-time prediction from live news feeds
-
-Web deployment using Flask or Streamlit
-
-Multilingual detection support
-
-📜 License
-This project is licensed under the MIT License. See LICENSE for details.
-
-🙌 Acknowledgements
-Scikit-learn
-
-NLTK
-
-Kaggle Dataset
-
-
-🌟 Show Your Support
+|------------------------------|----------|----------|
+| Logistic Regression          | 92.3%    | 0.91     |
+| Passive Aggressive Classifier| 93.4%    | 0.93     |
 
 ---
 
-Would you like me to:
-- Upload this to your GitHub repo directly (if you add me as collaborator)?
-- Help you add demo images or a Streamlit UI?
+## ✅ Evaluation
 
-Let me know how you'd like to proceed!
+![Confusion Matrix](https://raw.githubusercontent.com/ds-with-ranjan/Fake-News-Detection/main/docs/confusion_matrix.png)
+
+Evaluation metrics include:
+- Classification report
+- Accuracy and F1-Score
+- Confusion matrix
+
+---
+
+## 🌐 Streamlit Web App
+
+An interactive interface built with Streamlit lets you paste news content and get instant predictions.
+
+### ▶️ Run App Locally:
+```bash
+streamlit run app.py
+
+Features:
+
+Input article text
+
+Predict real or fake
+
+Displays model confidence
+
+🧪 How to Run Locally
+🔻 Clone the Repo
+bash
+Copy
+Edit
+git clone https://github.com/ds-with-ranjan/Fake-News-Detection.git
+cd Fake-News-Detection
+🛠 Install Dependencies
+bash
+Copy
+Edit
+pip install -r requirements.txt
+🚀 Train Model (Optional)
+Open and run FakeNewsDetection.ipynb in Jupyter Notebook
+
+🌍 Launch Streamlit App
+bash
+Copy
+Edit
+streamlit run app.py
+🐳 Docker Support (Optional)
+Dockerfile is included for deployment:
+
+dockerfile
+Copy
+Edit
+FROM python:3.10
+WORKDIR /app
+COPY . .
+RUN pip install -r requirements.txt
+CMD ["streamlit", "run", "app.py", "--server.port=8501", "--server.address=0.0.0.0"]
+Build & Run:
+
+bash
+Copy
+Edit
+docker build -t fake-news-app .
+docker run -p 8501:8501 fake-news-app
+🔮 Future Enhancements
+ Add Deep Learning (LSTM/BERT)
+
+ Detect fake sources (URLs/domains)
+
+ Add multilingual support
+
+ Explainable AI using SHAP
+
+👤 Author
+Ranjan Chakrabortty
+📧 ranjanchakrabortty4@gmail.com
+🌐 GitHub
+
+📄 License
+This project is licensed under the MIT License.
+
+🙌 Acknowledgements
+Fake and Real News Dataset on Kaggle
+
+Tutorials by Analytics Vidhya and Medium
+
+vbnet
+Copy
+Edit
 
 
 
+---
 
+### 🔁 Summary of Your To-Do:
+| Task | Status |
+|------|--------|
+| ✅ Paste this updated README into your repo | 🔁 Pending |
+| 📸 Upload `docs/demo.png` and `docs/confusion_matrix.png` | 🔁 Pending |
+| 🚀 (Optional) Ask me for Streamlit UI or Docker help | ❓ Let me know |
 
-
-
-
-
-
-
- 
-
+Would you like me to **build the `app.py` (Streamlit)** for your fake news prediction UI next?
